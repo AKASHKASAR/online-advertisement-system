@@ -15,9 +15,31 @@ const Header = () => (
         <li className="nav-item">
           <Link className="nav-link" to="/Login" >Login</Link>
         </li>
-       
+  
       </ul>
+      
+    </nav>
+
+    <div>
+    <nav className="navbar navbar-expand-sm navbar-dark bg-primary" >
+      <Link className="navbar-brand" to="/home">
+        
+      </Link>
+      <ul className="navbar-nav">
+            
+        <li className="nav-item">
+          <Link className="nav-link" to="/Search" >Search</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/Login" >Login</Link>
+        </li>
+  
+      </ul>
+      
     </nav>
   </div>
+  </div>
 )
+
+
 export default Header;
