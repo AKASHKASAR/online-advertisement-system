@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
 
-const Header = () => (
+const Header = () => (// header
   <div>
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <Link className="navbar-brand" to="/home">
