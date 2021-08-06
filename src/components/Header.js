@@ -12,10 +12,8 @@ const Header = () => (
         <li className="nav-item">
           <Link className="nav-link" to="/Search" >Search</Link>
         </li>
-        <li className="d-flex" > 
-          
-          <Link className="nav-link" to="/login">Login</Link>
-          <button class="btn-primary">Log In</button>
+        <li className="nav-item">
+          <Link className="nav-link" to="/Login" >Login</Link>
         </li>
        
       </ul>

@@ -4,7 +4,10 @@ function Footer() {
   return (
 
     <div className="footer fixed-bottom bg-dark text-secondary">
-      <p>Copyright &copy; Capgemini</p>
+
+          About  Contact Us
+
+      <p>Copyright &copy;2021 By FlyBuy Online</p>
     </div>
 
 
