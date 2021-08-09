@@ -11,6 +11,9 @@ import Login from './Login';
 import Category from './Category';
 // import Drawer from './Navbar';
 import Search from './search';
+import Register from './auth/Register';
+
+
 const Routes = () => {
     return (
         <div>
@@ -26,6 +29,7 @@ const Routes = () => {
                             <Route path="/login"><Login /></Route>
                             <Route path="/home"><Home /></Route>
                             <Route path="/Category"><Category /></Route>
+                            <Route path="/Register">< Register/></Route>
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
                             

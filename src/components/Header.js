@@ -21,7 +21,7 @@ const Header = () => (
         </li>
         
         {/* <ul className="ml-auto "  > */}
-         <li className=" nav-tabs outline-white"><Link className="nav-link" to="/Login"  >Sign Up</Link></li>
+         <li className=" nav-tabs outline-white"><Link className="nav-link" to="/Register"  >Sign Up</Link></li>
         {/* </ul> */}
         <li className="nav-item nav-tabs "> <Link className="nav-link" to="/Login"   > LogIn</Link></li>
         
