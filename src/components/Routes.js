@@ -7,8 +7,10 @@ import PageNotFound from './PageNotFound';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
-import Search from './Search';
+
 import Category from './Category';
+// import Drawer from './Navbar';
+import Search from './search';
 const Routes = () => {
     return (
         <div>
@@ -26,11 +28,14 @@ const Routes = () => {
                             <Route path="/Category"><Category /></Route>
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
+                            
                             <Route path="/*"><PageNotFound /></Route>
                         </Switch>
                     </div>
                 </div>
             </Router>
+            {/* <Drawer  /> */}
+            {/* <Search /> */}
             <Footer />
         </div>
     );
