@@ -85,6 +85,50 @@ class Register extends Component {
                                 Create your Flybuy account
                             </p>
                             <form noValidate onSubmit={this.onSubmit}>
+
+                            <input
+                                    className={classnames('form-control form-control-lg', {
+                                        'is-invalid': errors.name
+                                    })}
+                                    name="firstName"
+                                    type="text"
+                                    placeholder="firstName"
+                                    value={this.state.firstName}
+                                    onChange={this.onChange}
+                                />
+
+                                <input
+                                    className={classnames('form-control form-control-lg', {
+                                        'is-invalid': errors.name
+                                    })}
+                                    name="lastName"
+                                    type="text"
+                                    placeholder="lastName"
+                                    value={this.state.lastName}
+                                    onChange={this.onChange}
+                                />
+
+<input
+                                    className={classnames('form-control form-control-lg', {
+                                        'is-invalid': errors.name
+                                    })}
+                                    name="address"
+                                    type="text"
+                                    placeholder="address"
+                                    value={this.state.address}
+                                    onChange={this.onChange}
+                                />
+                                
+                                <input
+                                    className={classnames('form-control form-control-lg', {
+                                        'is-invalid': errors.name
+                                    })}
+                                    name="contactno"
+                                    type="text"
+                                    placeholder="contactno"
+                                    value={this.state.contactno}
+                                    onChange={this.onChange}
+                                />
                                 <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.name
@@ -125,72 +169,15 @@ class Register extends Component {
                                         'is-invalid': errors.password2
                                     })}
 
-                                    name="password2"
-                                    type="password"
+                                    name="confirmpassword"
+                                    type="confirmpassword"
                                     placeholder="Confirm Password"
-                                    value={this.state.password2}
+                                    value={this.state.confirmpassword}
                                     onChange={this.onChange}
                                 />
                                 {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="firstName"
-                                    type="text"
-                                    placeholder="firstName"
-                                    value={this.state.firstName}
-                                    onChange={this.onChange}
-                                />
-
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="lastName"
-                                    type="text"
-                                    placeholder="lastName"
-                                    value={this.state.lastName}
-                                    onChange={this.onChange}
-                                />
-
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="address"
-                                    type="text"
-                                    placeholder="address"
-                                    value={this.state.address}
-                                    onChange={this.onChange}
-                                />
-                                
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="contactno"
-                                    type="text"
-                                    placeholder="contactno"
-                                    value={this.state.contactno}
-                                    onChange={this.onChange}
-                                />
-
-                                
-                                
-
-
-
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
-
-
-
-
-
-
-
-
 
                             </form>
                         </div>

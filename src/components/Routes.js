@@ -8,11 +8,11 @@ import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
 
-import Category from './Category';
+import CategoryAdm from './CategoryAdm';
 // import Drawer from './Navbar';
 import Search from './search';
 import Register from './auth/Register';
-
+import Product from './Product';
 
 const Routes = () => {
     return (
@@ -28,8 +28,9 @@ const Routes = () => {
                             <Route path="/search"><Search /></Route>
                             <Route path="/login"><Login /></Route>
                             <Route path="/home"><Home /></Route>
-                            <Route path="/Category"><Category /></Route>
+                            <Route path="/CategoryAdm"><CategoryAdm /></Route>
                             <Route path="/Register">< Register/></Route>
+                            <Route path="/Product">< Product/></Route>
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
                             

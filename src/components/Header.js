@@ -54,28 +54,25 @@ const Header = () => (
         <ul className="navbar-nav">
 
           <li className="nav-item">
-            <Link className="nav-link" to="/Category" >Mobile</Link>
+            <Link className="nav-link" to="/Product" >Mobile</Link>
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" to="/Category" >Electronics</Link>
+            <Link className="nav-link" to="/Product" >Electronics</Link>
           </li>
 
           <li className="nav-item" >
-            <Link className="nav-link" to="/Category" >Car</Link>
+            <Link className="nav-link" to="/Product" >Car</Link>
           </li>
 
-        </ul>
-
-
+        
+ <li className="nav-item nav-tabs "> <Link className="nav-link" to="/CategoryAdm"   > AdminFunction</Link></li>
+ <li className="nav-item nav-tabs "> <Link className="nav-link" to="/Product"   > AddProduct</Link></li>
+ </ul>
       </nav>
     </div>
   </div>
 )
-
-
-
-
 
 
 export default Header;
