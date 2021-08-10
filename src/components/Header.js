@@ -8,7 +8,7 @@ const Header = () => (
   <div>
     <nav className="navbar navbar-expand-md navbar-dark bg-dark  ">
       <Link className="navbar-brand" to="/home">
-        <img src="./Images/Flybuy.png" width="120px" height="40px" alt="Flybuy" />
+        <img src="./Images/Flybuy.jpg" width="120px" height="40px" alt="Flybuy" />
       </Link>
       <ul className="container-fluid  navbar-nav" >
       
