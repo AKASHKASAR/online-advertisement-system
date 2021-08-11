@@ -11,8 +11,10 @@ const AdminFunction= () => (
           <h1>AdminFunction</h1>
           <p> Admin All Functions</p>
           <form>
+            <div class="row col-md-3">
             <button variant="btn btn-success" onClick={() => history.push ('/CategoryAdm')}>Click to add new category</button>
-            {/* <button variant="btn btn-success" onClick={() => history.push ('/CategoryAdm')}>View Users</button> */}
+            <button variant="btn btn-success" onClick={() => history.push ('/User')}>View Users</button>
+            </div>
         </form>
         </div>
       </div>

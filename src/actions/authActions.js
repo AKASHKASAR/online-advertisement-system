@@ -8,6 +8,7 @@ export const registerUser = (userObject) => {
         .post("/Registration", userObject)
         .then((response) => {
           dispatch({
+
             type: UT.USER_SAVED_SUCCESS,
             payload: response.data.message,
           });
@@ -18,6 +19,19 @@ export const registerUser = (userObject) => {
     };
 
 
+  };
+  export const fetchUser = () => {
+    return (dispatch) => {
+      dispatch(userRequest());
+      axios
+        .get("/admin/getAllUserDetails")
+        .then((response) => {
+          dispatch(userSuccess(response.data));
+        })
+        .catch((error) => {
+          dispatch(userFailure(error));
+        });
+    };
   };
  
   const userRequest = () => {

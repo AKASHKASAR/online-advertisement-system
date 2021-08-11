@@ -15,6 +15,7 @@ import Register from './auth/Register';
 import Product from './Product';
 import AdminFunction  from'./AdminFunction';
 import UserFunction  from'./UserFunction';
+import User from'./User';
 
 const Routes = () => {
     return (
@@ -35,6 +36,7 @@ const Routes = () => {
                             <Route path="/Product">< Product/></Route>
                             <Route path="/AdminFunction">< AdminFunction/></Route>
                             <Route path="/UserFunction">< UserFunction/></Route>
+                            <Route path="/User">< User/></Route>
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
                             
