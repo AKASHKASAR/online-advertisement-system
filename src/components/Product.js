@@ -13,7 +13,9 @@ class Product extends Component {
             price: '',
             description: '',
             advownername: '',
-            catid:'',
+            catid: '',
+            imageUrl: '',
+
         };
 
         this.onChange = this.onChange.bind(this);
@@ -49,6 +51,7 @@ class Product extends Component {
             description: this.state.description,
             advownername: this.state.advownername,
             catid: this.state.catid,
+            imageUrl: this.state.imageUrl,
         }
 
         this.props.addProduct(newProduct, this.props.history);
@@ -80,7 +83,7 @@ class Product extends Component {
                                     value={this.state.advertisetitle}
                                     onChange={this.onChange}
                                 />
-        
+
                                 <input
                                     // className={classnames('form-control form-control-lg', {
                                     //     'is-invalid': errors.price
@@ -103,9 +106,9 @@ class Product extends Component {
                                     value={this.state.description}
                                     onChange={this.onChange}
                                 />
-                                
-                    
-                               <input
+
+
+                                <input
                                     // className={classnames('form-control form-control-lg', {
                                     //     'is-invalid': errors.ownername
                                     // })}
@@ -117,7 +120,7 @@ class Product extends Component {
                                     onChange={this.onChange}
                                 />
 
-                         <input
+                                <input
                                     // className={classnames('form-control form-control-lg', {
                                     //     'is-invalid': errors.ownername
                                     // })}
@@ -129,7 +132,21 @@ class Product extends Component {
                                     onChange={this.onChange}
                                 />
 
-                    
+
+
+                                <input
+                                    // className={classnames('form-control form-control-lg', {
+                                    //     'is-invalid': errors.ownername
+                                    // })}
+
+                                    name="imageUrl"
+                                    type="text"
+                                    placeholder="imageUrl"
+                                    value={this.state.imageUrl}
+                                    onChange={this.onChange}
+                                />
+
+
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>

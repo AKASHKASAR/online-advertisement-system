@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import MyForm from './MyForm';
+
 import Home from './Home';
 import PageNotFound from './PageNotFound';
 // import MaterialUiSample from './MaterialUiSample';
@@ -9,10 +9,12 @@ import Footer from './Footer';
 import Login from './Login';
 
 import CategoryAdm from './CategoryAdm';
-// import Drawer from './Navbar';
+
 import Search from './search';
 import Register from './auth/Register';
 import Product from './Product';
+import AdminFunction  from'./AdminFunction';
+import UserFunction  from'./UserFunction';
 
 const Routes = () => {
     return (
@@ -31,6 +33,8 @@ const Routes = () => {
                             <Route path="/CategoryAdm"><CategoryAdm /></Route>
                             <Route path="/Register">< Register/></Route>
                             <Route path="/Product">< Product/></Route>
+                            <Route path="/AdminFunction">< AdminFunction/></Route>
+                            <Route path="/UserFunction">< UserFunction/></Route>
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
                             

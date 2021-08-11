@@ -66,8 +66,8 @@ const Header = () => (
           </li>
 
         
- <li className="nav-item nav-tabs "> <Link className="nav-link" to="/CategoryAdm"   > AdminFunction</Link></li>
- <li className="nav-item nav-tabs "> <Link className="nav-link" to="/Product"   > AddProduct</Link></li>
+ <li className="nav-item nav-tabs "> <Link className="nav-link" to="/AdminFunction"   > AdminFunction</Link></li>
+ <li className="nav-item nav-tabs "> <Link className="nav-link" to="/UserFunction"   > UserFunction</Link></li>
  </ul>
       </nav>
     </div>

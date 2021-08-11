@@ -12,8 +12,6 @@ const reducer = (state = initialState, action) => {
         return {
           message: action.payload,
           error: "",
-        
-
         };
 
 

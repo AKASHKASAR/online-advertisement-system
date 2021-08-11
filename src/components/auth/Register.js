@@ -79,14 +79,14 @@ class Register extends Component {
             <div className="register">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Sign Up</h1>
+                        <div className="col-md-5 m-auto">
+                            <h1 className="display-8 text-center">Sign Up</h1>
                             <p className="lead text-center">
                                 Create your Flybuy account
                             </p>
                             <form noValidate onSubmit={this.onSubmit}>
 
-                            <input
+                                <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.name
                                     })}
@@ -108,7 +108,7 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
 
-<input
+                                <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.name
                                     })}
@@ -118,7 +118,7 @@ class Register extends Component {
                                     value={this.state.address}
                                     onChange={this.onChange}
                                 />
-                                
+
                                 <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.name
@@ -139,7 +139,7 @@ class Register extends Component {
                                     value={this.state.name}
                                     onChange={this.onChange}
                                 />
-                                {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
+                                {/* {errors.name && (<div className="invalid-feedback">{errors.name}</div>)} */}
                                 <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.email
@@ -150,7 +150,7 @@ class Register extends Component {
                                     value={this.state.email}
                                     onChange={this.onChange}
                                 />
-                                {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
+                                {/* {errors.email && (<div className="invalid-feedback">{errors.email}</div>)} */}
 
                                 <input
                                     className={classnames('form-control form-control-lg', {
@@ -163,7 +163,7 @@ class Register extends Component {
                                     value={this.state.password}
                                     onChange={this.onChange}
                                 />
-                                {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
+                                {/* {errors.password && (<div className="invalid-feedback">{errors.password}</div>)} */}
                                 <input
                                     className={classnames('form-control form-control-lg', {
                                         'is-invalid': errors.password2
@@ -175,9 +175,9 @@ class Register extends Component {
                                     value={this.state.confirmpassword}
                                     onChange={this.onChange}
                                 />
-                                {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)}
+                                {/* {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)} */}
 
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                                <input type="submit" className="btn btn-info btn-block mt-2" />
 
                             </form>
                         </div>
