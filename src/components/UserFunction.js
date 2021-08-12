@@ -2,16 +2,18 @@
 import history from './history';
 
 
-const AdminFunction= () => (
+const UserFunction= () => (
    
     
    
-        <div className="Home">
-        <div className="lander">
+        <div >
+        <div >
           <h1>UserFunction</h1>
           <p> User All Functions</p>
           <form>
             <button variant="btn btn-success" onClick={() => history.push ('/Product')}>Click to add new Product</button>
+            <button variant="btn btn-success" onClick={() => history.push ('/imgProduct')}>Click to see Product</button>
+
           </form>
         </div>
       </div>
@@ -20,5 +22,5 @@ const AdminFunction= () => (
 
 );
 
-export default AdminFunction;
+export default UserFunction;
 

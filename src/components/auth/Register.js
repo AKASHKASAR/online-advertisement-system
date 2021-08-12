@@ -60,7 +60,7 @@ class Register extends Component {
             lastName: this.state.lastName,
             address: this.state.address,
             contactno: this.state.contactno,
-            email: this.state.email,
+          
 
 
 

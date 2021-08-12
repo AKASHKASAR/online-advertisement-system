@@ -16,6 +16,8 @@ import Product from './Product';
 import AdminFunction  from'./AdminFunction';
 import UserFunction  from'./UserFunction';
 import User from'./User';
+import ImgProduct from './ImgProduct';
+
 
 const Routes = () => {
     return (
@@ -37,6 +39,9 @@ const Routes = () => {
                             <Route path="/AdminFunction">< AdminFunction/></Route>
                             <Route path="/UserFunction">< UserFunction/></Route>
                             <Route path="/User">< User/></Route>
+                            <Route path="/ImgProduct">< ImgProduct/></Route>
+                           
+
 
                             {/* <Route path="/mat"><MaterialUiSample /></Route> */}
                             

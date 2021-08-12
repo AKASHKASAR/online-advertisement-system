@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/authActions';
+import axios from "axios";
+import { USER_FAILURE } from '../actions/types';
 
 class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            users: []
 
         };
     }
@@ -22,21 +24,44 @@ class User extends Component {
     //this.onSubmit = this.onSubmit.bind(this);
     //}
     componentDidMount() {
-        this.props.fetchUser();
-    }
+        // this.props.fetchUser();
+        
+        axios
+        .get("/admin/getAllUserDetails")
+        .then(response=>response.data)
+        .then((data)=>{
+          this.setState({users:data})
+          
+        })
+        .catch((error) => {
+            console.log(error.message)
+          })
+        }
+       
+         
+        deleteRow(userid, e){  
+            axios.delete(`/admin/deleteUser/${userid}`)  
+              .then(res => {  
+                console.log(res);  
+                console.log(res.data);  
+                const users= this.state.users.filter(item => item.userid !== userid);  
+                this.setState({ users });  
+                 
+              })  
+        
+    
 
-    onChange(e) {
-        this.setState({
-            // way to keep this code DRY so this one function works on ALL the input fields
-            [e.target.name]: e.target.value
-        });
-    }
+   }
+
+
+
+    
     render()
      {
 
         // const userData = this.props.userData;
         // const users = userData.users;
-        //const currentUsers = users && users.slice(firstIndex, lastIndex);
+        // const currentUsers = users ;
         {
 
             return (
@@ -50,38 +75,36 @@ class User extends Component {
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <td>UserID</td>
                                         <td>UserName</td>
                                         <td>FirstName</td>
                                         <td>LastName</td>
                                         <td>Address</td>
                                         <td>ContactNo</td>
                                         <td>Email</td>
+                                        <td>Action</td>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    {/* { {users,length === 0 ? (
-                                        <tr align="center">
-                                            <td colSpan="6">No Users Available</td>
-                                        </tr>
-                                    ) :
-                                        ( }
-                                             currentUsers.map((user, index) => (
+                                     
+                                        
+                                            { this.state.users.map((user) => (
 
-                                                   <tr key={index}>
-                                                   <td>
-                                                        {user.first} {user.last}
-                                                     </td>
+                                                   <tr >
+                                                   {/* <thead scope="row">{index+1}</thead> */}
+                                                   <td>{user.userid}</td>
                                                     <td>{user.username}</td>
                                                     <td>{user.firstName}</td>
                                                     <td>{user.lastName}</td>
                                                     <td>{user.address}</td>
                                                     <td>{user.contactno}</td>
                                                     <td>{user.email}</td>
+                                                    <td><button className="btn btn-danger" onClick={(e) => this.deleteRow(user.userid, e)}>Delete</button></td>
                                                 </tr>
-                                                    ))
-                                )
-                                } */}
+                                                    ))}
+                                
+                        
                             </tbody>
                         </table>
                    
@@ -94,16 +117,18 @@ class User extends Component {
 
     }
 }
-    const mapStateToProps = (state) => {
-        return {
-            userData: state.User,
-        }
-    };
+    // const mapStateToProps = (state) => {
+    //     return {
+    //         users: state.userData.users,
+    //     }
+    // };
 
-    const mapDispatchToProps = (dispatch) => {
-        return {
-            fetchUser: () => dispatch(fetchUser()),
-        }
-    };
+    // const mapDispatchToProps = (dispatch) => {
+    //     return {
+    //         fetchUser: () => dispatch(fetchUser()),
+    //     }
+    // };
 
-    export default connect(mapStateToProps, mapDispatchToProps)(User);
+    // export default connect(mapStateToProps, mapDispatchToProps)(User);
+
+    export default User;
