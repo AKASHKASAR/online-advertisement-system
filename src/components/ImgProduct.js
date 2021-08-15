@@ -1,6 +1,8 @@
+import React, { Component } from 'react';
+import Search from './Search';
 import history from './history';
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles'
 import {
     Grid,
@@ -9,89 +11,88 @@ import {
     Typography,
     CardHeader
 } from '@material-ui/core/'
+
 import { ImageList } from '@material-ui/core';
 import product from './Product';
 
-import axios from "axios";
-import { useState, useEffect } from 'react';
+class ImgProduct extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
 
-let ImgProduct = (props) => {
-    const [product, setProduct] = useState({
-        advertisetitle: '',
-        price: '',
-        description: '',
-        advownername: '',
-        catid: '',
-        imageUrl: '',
-    });
-    // const [product, setProduct] = useState({product}); // try this, if the above useState does not work 
 
-    useEffect(
-        () => {
-            axios.get(`/user/seller/getAllAdv`)
-                .then(
-                    (response) => {
-                        setProduct(response.data);
-                        console.log(product.advertisetitle);
-                    }
-                )
-                .catch((error) => {
-                    console.log(error.message);
-                });
-        }, []);
+            //  advid:'' ,
 
-    const handleProduct = (event) => {
-        console.log(product.advertisetitle); // for testing, remove afterwards 
-        setProduct({
-            ...product,
-            [event.target.name]: event.target.value
-        });
-    };
+            //  textMessage:'',
 
-    const submitGetProductByName = (event) => {
-        axios.get(`/user/getAdvertise/${product.advertisetitle}`)
-            .then(
-                (response) => {
-                    setProduct(response.data);
-                    console.log(product.advertisetitle);
-                }
-            )
-            .catch((error) => {
-                console.log(error.message);
-            });
-        event.preventDefault();
+            product: [],
+            searchProduct:''
+
+        };
     }
 
-    return (
+
+
+
+    componentDidMount() {
+        this.findAllAdvertise(this.state.currentPage);
+    }
+
+    findAllAdvertise(cureentPage){
+        axios
+            .get("/user/seller/getAllAdv")
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({ product: data })
+
+                console.log(data);
+            })
+            
+            .catch((error) => {
+                console.log(error.message)
+            })
+    }
+
+    
+    searchChanged = event => {
+        this.setState({ search: event.target.value })
+    }
+    // handleInput = (e) => {
+    //     // this.setState({ searchProduct: e.target.value })
+    //     this.state.product.advertisetitle = e.target.product.advertisetitle.toLowerCase();
+        // this.state.filterProduct = this.state.product.filter((e) => {
+        //     product.advertisetitle = e.target.value.toLowerCase();
+            // return product.advertisetitle.toLowerCase().include(this.state.searchProduct.toLowerCase());
+        
+    // }
+    // handleSubmit = (event) => {
+    //     filterProduct = this.state.product.filter((product) => {
+    //         return product.advertisetitle.toLowerCase().include(this.state.searchProduct.toLowerCase());
+
+    //     })
+    //     event.preventDefault();
+    //     // history.push("/ProductsLink");
+    // }
+
+
+
+    render() {
+    
+
+        return (
+            <div>
+            
+            <h1> Search Product By name</h1>
+            <input type='text' onChange={this.searchChanged} placeholder="Redmi,Vivo.." value={this.state.search}/>
+
         <div>
-            <p>Product Component</p>
-            <div>
-                <p>Search Product here - </p>
-                <form onSubmit={submitGetProductByName} className="form form-group">
-                    <div>
-                        <input
-                            type="text"
-                            id="productName"
-                            name="productName"
-                            value={product.advertisetitle}
-                            onChange={handleProduct}
-                            className="form-control mb-2"
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Search</button>
-                </form>
-                </div>
-
-
-            <div>
             <Grid
             container
             direction="row"
             justifyContent="center"
             alignItems="center"
              >
-                 <div>
-           { product.map((item, index) => (
+           { this.state.product.filter(item => item.advertisetitle.includes(this.state.search)).map(item => (
 
 
 
@@ -126,12 +127,13 @@ let ImgProduct = (props) => {
                 </div>
        
                         ))}
-                        </div>
+
             </Grid>
             </div>
+          </div>
 
-
-        </div>
-    )
+        );
+    }
 }
+
 export default ImgProduct;

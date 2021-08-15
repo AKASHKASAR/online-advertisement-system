@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
+import ImgProduct from './ImgProduct';
 import Search from './Search';
 
 
@@ -16,9 +17,9 @@ const Header = () => (
           {/* <Link className="nav-link" to="/Search"></Link> */}
         </li>
 
-        {/* <li>
-          <Search />
-        </li> */}
+        <li>
+        <button className="btn btn-warning "  > <Link className="text-white text-decoration-none"  to={'/ImgProduct'}>Search Advertisement</Link></button>
+        </li>
         
         {/* <ul className="ml-auto "  > */}
          <li className=" nav-tabs outline-white"><Link className="nav-link" to="/Register"  >Sign Up</Link></li>
