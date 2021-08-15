@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
-import Search from './search';
+import Search from './Search';
 
 
 
@@ -16,9 +16,9 @@ const Header = () => (
           {/* <Link className="nav-link" to="/Search"></Link> */}
         </li>
 
-        <li>
+        {/* <li>
           <Search />
-        </li>
+        </li> */}
         
         {/* <ul className="ml-auto "  > */}
          <li className=" nav-tabs outline-white"><Link className="nav-link" to="/Register"  >Sign Up</Link></li>

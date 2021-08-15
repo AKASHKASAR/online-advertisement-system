@@ -13,7 +13,8 @@ class User extends Component {
         this.state = {
             users: []
 
-        };
+        }
+        
     }
 
 
@@ -24,7 +25,7 @@ class User extends Component {
     //this.onSubmit = this.onSubmit.bind(this);
     //}
     componentDidMount() {
-        // this.props.fetchUser();
+     
         
         axios
         .get("/admin/getAllUserDetails")

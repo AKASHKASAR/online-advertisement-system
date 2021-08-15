@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import imgProduct from './ImgProduct';
-
+import Search from './Search';
 
 function Home() {
   return (
@@ -11,7 +11,9 @@ function Home() {
       
       <h1> Welcome to Flybuy</h1>
        {/* <img src="./Images/imgbs.jpg" width="600px" height="300px" alt="imgbs" className="center"/> */}
-      
+        <ul>
+          <Search />
+        </ul>
      {/* <div class="container">
          <div class="row">
        <div class="col-lg-5 mb-4"> */}

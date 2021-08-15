@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-// import { addProduct } from '../actions/productActions';
+// import { addProduct ,updateProduct } from '../actions/productActions';
 
 import {
     addProduct,
@@ -11,16 +11,17 @@ import {
     
   } from "../services/index";
 
-class Product extends Component {
+class UpdateProduct extends Component {
     constructor() {
         super();
         this.state = {
+            advid:'',
             advertisetitle: '',
             price: '',
             description: '',
             advownername: '',
             catid: '',
-            imageUrl: '',
+            imageUrl: ''
 
         };
 
@@ -51,34 +52,46 @@ class Product extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const newProduct = {
+        const advProduct = {
+            advid:this.state.advid,
             advertisetitle: this.state.advertisetitle,
             price: this.state.price,
             description: this.state.description,
             advownername: this.state.advownername,
             catid: this.state.catid,
-            imageUrl: this.state.imageUrl,
+            imageUrl: this.state.imageUrl
         }
 
-        this.props.addProduct(newProduct, this.props.history);
+        this.props.updateProduct(advProduct, this.props.history);
+        console.log(advProduct);
     }
 
     render() {
 
-        // const { errors } = this.state;
-        // Same as:
-        // const errors = this.state.errors;
+       
 
         return (
             <div className="register">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 m-auto">
-                            <h1 className="display-5 text-center">Add product</h1>
+                            <h1 className="display-5 text-center">UpdateProduct</h1>
                             <p className="lead text-center">
-                                Add your product
+                                update your product
                             </p>
                             <form noValidate onSubmit={this.onSubmit}>
+
+                            <input
+                                    // className={classnames('form-control form-control-lg', {
+                                    //     'is-invalid': errors.title
+                                    // })}
+                                    name="advid"
+                                    type="number"
+                                    id="advid"
+                                    placeholder="advid"
+                                    value={this.state.advid}
+                                    onChange={this.onChange}
+                                />
                                 <input
                                     // className={classnames('form-control form-control-lg', {
                                     //     'is-invalid': errors.title
@@ -126,17 +139,7 @@ class Product extends Component {
                                     onChange={this.onChange}
                                 />
 
-                                <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
-
-                                    name="catid"
-                                    type="text"
-                                    placeholder="catid"
-                                    value={this.state.catid}
-                                    onChange={this.onChange}
-                                />
+                                
 
 
 
@@ -163,8 +166,8 @@ class Product extends Component {
     }
 }
 
-Product.propTypes = {
-    addProduct: PropTypes.func.isRequired,
+UpdateProduct.propTypes = {
+    updateProduct: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,
     // errors: PropTypes.object.isRequired
 };
@@ -174,4 +177,4 @@ const mapStateToProps = state => ({
     // errors: state.errors
 });
 
-export default connect(mapStateToProps, { addProduct })(withRouter(Product));
+export default connect(mapStateToProps, { updateProduct })(withRouter(UpdateProduct));
