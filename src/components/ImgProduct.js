@@ -17,7 +17,12 @@ import { useState, useEffect } from 'react';
 
 let ImgProduct = (props) => {
     const [product, setProduct] = useState({
-        // add fields here 
+        advertisetitle: '',
+        price: '',
+        description: '',
+        advownername: '',
+        catid: '',
+        imageUrl: '',
     });
     // const [product, setProduct] = useState({product}); // try this, if the above useState does not work 
 
@@ -27,7 +32,7 @@ let ImgProduct = (props) => {
                 .then(
                     (response) => {
                         setProduct(response.data);
-                        console.log(product.productName);
+                        console.log(product.advertisetitle);
                     }
                 )
                 .catch((error) => {
@@ -36,7 +41,7 @@ let ImgProduct = (props) => {
         }, []);
 
     const handleProduct = (event) => {
-        console.log(product.productName); // for testing, remove afterwards 
+        console.log(product.advertisetitle); // for testing, remove afterwards 
         setProduct({
             ...product,
             [event.target.name]: event.target.value
@@ -44,11 +49,11 @@ let ImgProduct = (props) => {
     };
 
     const submitGetProductByName = (event) => {
-        axios.get(`/urlForTheProduct/${product.productName}`)
+        axios.get(`/user/seller/getAllAdv/${product.advertisetitle}`)
             .then(
                 (response) => {
                     setProduct(response.data);
-                    console.log(product.productName);
+                    console.log(product.advertisetitle);
                 }
             )
             .catch((error) => {
@@ -68,7 +73,7 @@ let ImgProduct = (props) => {
                             type="text"
                             id="productName"
                             name="productName"
-                            value={product.productName}
+                            value={product.advertisetitle}
                             onChange={handleProduct}
                             className="form-control mb-2"
                         />
