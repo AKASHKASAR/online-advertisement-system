@@ -1,202 +1,208 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { registerUser } from '../../actions/authActions'
+import axios from 'axios';
+
+
 
 class Register extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props)
+
         this.state = {
-            username: '',
-            password: '',
-            password2: '',
-            firstName: '',
-            lastName: '',
-            address: '',
-            contactno: '',
-            email: '',
-
-
-
-            errors: {}
-        };
-
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-
-    componentDidMount() {
-        if (this.props.auth.isAuthenticated) {
-            // if loged in, redirect to home / books:
-            this.props.history.push('/');
+            firstName: "",
+            lastName: "",
+            username: "",
+          
+            email : "",
+            password: "",
+            address:"",
+            contactno : "",
+           
+            role : "USER"
         }
+        this.handleSubmit=this.handleSubmit.bind(this);
+        this.firsthandler = this.firsthandler.bind(this);
+        this.lasthandler = this.lasthandler.bind(this);
+        this.passwordhandler = this.passwordhandler.bind(this);
+        this.usernamehandler = this.usernamehandler.bind(this);
+        this.addressHandler = this.addressHandler.bind(this);
+        this.contactnoHandler = this.contactnoHandler.bind(this);
+        this.emailHandler = this.emailHandler.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
-        }
-    }
-
-    onChange(e) {
+    firsthandler = (event) => {
         this.setState({
-            // way to keep this code DRY so this one function works on ALL the input fields
-            [e.target.name]: e.target.value
-        });
+            firstName: event.target.value
+        })
+    }
+    lasthandler = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+    passwordhandler = (event) => {
+        this.setState({
+            password: event.target.value
+        })
     }
 
-    onSubmit(e) {
-        e.preventDefault();
+    usernamehandler = (event) => {
+        this.setState({
+            username: event.target.value
+        })
+    }
 
-        const newUser = {
-            name: this.state.username,
-            email: this.state.email,
-            username: this.state.username,
-            password: this.state.password,
-            password2: this.state.password2,
+    emailHandler = (e) => {
+        this.setState({
+            email : e.target.value
+        })
+    }
+
+    addressHandler = e => {
+        this.setState({
+            address: e.target.value
+        })
+    }
+
+    contactnoHandler = e => {
+        this.setState({
+            contactno: e.target.value
+        })
+    }
+
+    
+
+    handleSubmit = (event) => {
+        
+        console.log(this.state);
+        let user ={
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            address: this.state.address,
+            username : this.state.username,
+            email : this.state.email,
+            password : this.state.password,
+            address : this.state.address,
             contactno: this.state.contactno,
-          
-
-
-
+              role : this.state.role
         }
-
-        this.props.registerUser(newUser, this.props.history);
+        axios.post('http://localhost:8084/Registration' ,user)
+        .then(res=>{
+            console.log(res.data);
+            console.log(res.status);
+            if(res.status === 200){
+                this.props.history.push('/');
+            }
+            
+        }).catch(e=>{
+            console.log(e.message);
+            if(e.message === "Request failed with status code 409"){
+                alert("User With Entered Email already Exists");
+            }
+            
+        }); //
+        this.setState({
+            firstName: "",
+            lastName: "",
+            username: "",
+            email : "",
+            password: "",
+            address : 0,
+            contactno : "",
+            
+        })
+     event.preventDefault();
+     
+        
     }
 
+
+
+
     render() {
-
-        const { errors } = this.state;
-        // Same as:
-        // const errors = this.state.errors;
-
         return (
-            <div className="register">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-5 m-auto">
-                            <h1 className="display-8 text-center">Sign Up</h1>
-                            <p className="lead text-center">
-                                Create your Flybuy account
-                            </p>
-                            <form noValidate onSubmit={this.onSubmit}>
+            <div className="container mt-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-5">
+                        <div className="cardo">
+                            <div className="card-body">
+                            <form onSubmit={this.handleSubmit}>
+                                    <h1 className="text-center">User Registration</h1>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                        <label>FirstName :</label> 
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                        <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="FirstName..." /><br />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                        <label>LastName :</label> 
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                        <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="LastName..." /><br />
+                                        </div>
+                                    </div>
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="firstName"
-                                    type="text"
-                                    placeholder="firstName"
-                                    value={this.state.firstName}
-                                    onChange={this.onChange}
-                                />
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>Email :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="email" value={this.state.email} onChange={this.emailHandler} placeholder="Email" required/><br />
+                                        </div>
+                                    </div>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>Password :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password..." required /><br />
+                                        </div>
+                                    </div>
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="lastName"
-                                    type="text"
-                                    placeholder="lastName"
-                                    value={this.state.lastName}
-                                    onChange={this.onChange}
-                                />
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>contactno :</label> 
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                         <input type="number" value={this.state.contactno} onChange={this.contactnoHandler} placeholder="Enter your contactno" /><br />
+                                        </div>
+                                    </div>
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="address"
-                                    type="text"
-                                    placeholder="address"
-                                    value={this.state.address}
-                                    onChange={this.onChange}
-                                />
+                                    
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="contactno"
-                                    type="text"
-                                    placeholder="contactno"
-                                    value={this.state.contactno}
-                                    onChange={this.onChange}
-                                />
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.name
-                                    })}
-                                    name="username"
-                                    type="text"
-                                    placeholder="username"
-                                    value={this.state.name}
-                                    onChange={this.onChange}
-                                />
-                                {/* {errors.name && (<div className="invalid-feedback">{errors.name}</div>)} */}
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.email
-                                    })}
-                                    name="email"
-                                    type="email"
-                                    placeholder="Email"
-                                    value={this.state.email}
-                                    onChange={this.onChange}
-                                />
-                                {/* {errors.email && (<div className="invalid-feedback">{errors.email}</div>)} */}
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>address :</label> 
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                         <input type="text" value={this.state.address} onChange={this.addressHandler}  /><br />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>username</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="username" required/><br />
+                                        </div>
+                                    </div>
 
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.password
-                                    })}
-
-                                    name="password"
-                                    type="password"
-                                    placeholder="Password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                />
-                                {/* {errors.password && (<div className="invalid-feedback">{errors.password}</div>)} */}
-                                <input
-                                    className={classnames('form-control form-control-lg', {
-                                        'is-invalid': errors.password2
-                                    })}
-
-                                    name="confirmpassword"
-                                    type="confirmpassword"
-                                    placeholder="Confirm Password"
-                                    value={this.state.confirmpassword}
-                                    onChange={this.onChange}
-                                />
-                                {/* {errors.password2 && (<div className="invalid-feedback">{errors.password2}</div>)} */}
-
-                                <input type="submit" className="btn btn-info btn-block mt-2" />
-
-                            </form>
+                                   
+                                        
+                                    
+                                    <input type="submit" className="btn btn-dark btn-block" value="Register" />
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         )
     }
 }
 
-Register.propTypes = {
-    registerUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors
-});
-
-export default connect(mapStateToProps, { registerUser })(withRouter(Register));
+export default Register;
