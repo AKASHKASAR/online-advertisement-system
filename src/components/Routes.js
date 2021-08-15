@@ -7,6 +7,7 @@ import PageNotFound from './PageNotFound';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './Login';
+import Logout from './Logout';
 
 import CategoryAdm from './CategoryAdm';
 
@@ -36,6 +37,7 @@ const Routes = () => {
                             <Route exact path="/"> <Home /> </Route>
                             <Route path="/Search"><Search /></Route>
                             <Route path="/login"><Login /></Route>
+                            <Route path="/logout"><Logout /></Route>
                             <Route path="/home"><Home /></Route>
                             <Route path="/CategoryAdm"><CategoryAdm /></Route>
                             <Route path="/Register">< Register/></Route>
