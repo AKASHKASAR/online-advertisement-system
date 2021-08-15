@@ -49,7 +49,7 @@ let ImgProduct = (props) => {
     };
 
     const submitGetProductByName = (event) => {
-        axios.get(`/user/seller/getAllAdv/${product.advertisetitle}`)
+        axios.get(`/user/getAdvertise/${product.advertisetitle}`)
             .then(
                 (response) => {
                     setProduct(response.data);
@@ -80,44 +80,57 @@ let ImgProduct = (props) => {
                     </div>
                     <button type="submit" className="btn btn-primary">Search</button>
                 </form>
+                </div>
+
+
+            <div>
+            <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+             >
+                 <div>
+           { product.map((item, index) => (
+
+
+
                 <div>
-                    {product.map((item, index) => (
 
+                     {/* <section className="py-4" container> */}
+                           <ul> 
+                    
 
+                        <div className="  col-11 col-md-6 col-lg-3 mx-0 mb-4 ">
+                            <div className="card p-0  overflow-hidden shadow" style={{ width: " 15rem " }} >
+                                <h5 className="card-header text-dark">{item.advertisetitle}</h5>
+                                <img className="card-img-top " src={item.imageUrl} alt="alt message" width="95px" height="130px" ></img>
+                                <div className="card-body bg-white mb-2" >
+                                    <p className="card-text">
+                                        AdvID:{item.advid} <br />
+                                        Price:{item.price}₹  <br />
+                                        Description:{item.description} <br />
+                                        OwnerName:{item.advownername}
 
-                        <div>
-
-                            {/* <section className="py-4" container> */}
-                            <ul>
-
-
-                                <div className="  col-11 col-md-6 col-lg-3 mx-0 mb-4 ">
-                                    <div className="card p-0  overflow-hidden shadow" style={{ width: " 15rem " }} >
-                                        <h5 className="card-header text-dark">{item.advertisetitle}</h5>
-                                        <img className="card-img-top " src={item.imageUrl} alt="alt message" width="95px" height="130px" ></img>
-                                        <div className="card-body bg-white mb-2" >
-                                            <p className="card-text">
-                                                AdvID:{item.advid} <br />
-                                                Price:{item.price}₹  <br />
-                                                Description:{item.description} <br />
-                                                OwnerName:{item.advownername}
-
-                                            </p>
-                                            {/* <button className="btn btn-success " >Buy</button> */}
-                                            {/* <button className="btn btn-success  " onClick={() => history.push ('/Message')}>Buy</button> */}
-                                            <button className="btn btn-success "  > <Link className="text-white" to={'/Message'}>Buy</Link></button>
-                                        </div>
-
-                                    </div>
-
+                                    </p>
+                                    {/* <button className="btn btn-success " >Buy</button> */}
+                                    {/* <button className="btn btn-success  " onClick={() => history.push ('/Message')}>Buy</button> */}
+                                    <button className="btn btn-success "  > <Link className="text-white" to={'/Message'}>Buy</Link></button>
                                 </div>
-                            </ul>
+
+                            </div>
 
                         </div>
-
-                    ))}
+                        </ul>
+                      
                 </div>
+       
+                        ))}
+                        </div>
+            </Grid>
             </div>
+
+
         </div>
     )
 }
