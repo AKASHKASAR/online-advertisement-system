@@ -23,7 +23,7 @@ const Header = () => (
           </li>
         </div>
 
-        <Nav className="navbar-right">
+        <Nav className="navbar-right nav-tabs">
           <Link to={"/Register"} className="nav-link">Sign Up </Link>
           <Link to={"/Login"} className="nav-link">Login</Link>
           <Link to={"/Logout"} className="nav-link">Logout</Link>
@@ -33,13 +33,13 @@ const Header = () => (
     </Nav>
 
     <div>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-secondary" >
+      <nav className="navbar navbar-expand-sm navbar-light bg-warning" >
 
         <div className="dropdown">
-          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button className="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             All Categories
           </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
             <li><a className="dropdown-item" href="#">Electronics</a></li>
             <div className="dropdown-divider"></div>
             <li><a className="dropdown-item" href="#">Mobile</a></li>
@@ -48,22 +48,24 @@ const Header = () => (
             <div className="dropdown-divider"></div>
             <li><a className="dropdown-item" href="#">Cars</a></li>
             <div className="dropdown-divider"></div>
+            <li><a className="dropdown-item" href="#">Bike</a></li>
+            <div className="dropdown-divider"></div>
             <li><a className="dropdown-item" href="#">Books</a></li>
           </ul>
         </div>
 
         <ul className="navbar-nav">
 
-          <li className="nav-item nav-tabs">
-            <Link className="nav-link" to="/Product" >Mobile</Link>
+          <li className="nav-item  nav-tabs"  >
+            <Link className="nav-link" to="/" >Mobile</Link>
           </li>
 
           <li className="nav-item nav-tabs">
-            <Link className="nav-link" to="/Product" >Electronics</Link>
+            <Link className="nav-link" to="/" >Electronics</Link>
           </li>
 
           <li className="nav-item nav-tabs " >
-            <Link className="nav-link" to="/Product" >Car</Link>
+            <Link className="nav-link" to="/" >Car</Link>
           </li>
           {/* <li className="nav-item nav-tabs "> <Link className="nav-link" to="/AdminFunction"   > AdminFunction</Link></li>
  <li className="nav-item nav-tabs "> <Link className="nav-link" to="/UserFunction"   > UserFunction</Link></li> */}
