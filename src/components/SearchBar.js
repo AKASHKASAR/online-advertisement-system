@@ -27,7 +27,7 @@ class SearchBar extends Component {
 
     findAllAdvertise(cureentPage) {
         axios
-            .get("/user/seller/getAllAdv")
+            .get("/user/buyer/getAllApprovedAdv")
             .then(response => response.data)
             .then((data) => {
                 this.setState({ product: data })

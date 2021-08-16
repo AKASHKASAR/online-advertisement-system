@@ -9,13 +9,12 @@ class Register extends Component {
             firstName: "",
             lastName: "",
             username: "",
-
             email: "",
             password: "",
             address: "",
             contactno: "",
-
             role: "USER"
+
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.firsthandler = this.firsthandler.bind(this);
@@ -120,8 +119,8 @@ class Register extends Component {
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-5">
-                        <div className="cardo">
-                            <div className="card-body">
+                        <div className="card-info">
+                            <div className="card-body card-info">
                                 <form onSubmit={this.handleSubmit}>
                                 
                                     <div className="row p-1">

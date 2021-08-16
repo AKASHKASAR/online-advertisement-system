@@ -8,7 +8,7 @@ function Home() {
     <div className="text-center" >
       {/* <h1 className="display-1 text-primary">Home Component</h1> */}
       <h1> Welcome to Flybuy</h1>
-      <ul><img src="./Images/Buy_Sell.jpg" width="1150px" height="250px" alt="imgbs" className="center" /></ul>
+      <ul><img src="./Images/Buy_Sell.jpg" width="1050px" height="300px" alt="imgbs" className="center" /></ul>
       <ul>
         <ProductImgHome />
       </ul>
