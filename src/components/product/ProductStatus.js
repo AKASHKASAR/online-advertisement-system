@@ -27,9 +27,6 @@ class ProductStatus extends Component {
 
             <div className="col-md-3 m-auto">
                 <p className="display-5 text-center">Change Product Status</p>
-                <p className="lead text-center">
-                    Change Status of user product
-                </p>
                 <form noValidate onSubmit={this.onSubmit}>
                     <input
                         name="advid"

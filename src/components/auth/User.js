@@ -47,9 +47,7 @@ class User extends Component {
                 <div>
 
                     <div className="card">
-                        <h5 class="card-header">UserDeatils</h5>
-
-
+                        <h5 class="card-header">User Details</h5>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
@@ -65,8 +63,6 @@ class User extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
 
                                     {this.state.users.map((user) => (
 

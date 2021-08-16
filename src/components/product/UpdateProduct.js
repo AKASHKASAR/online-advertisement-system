@@ -65,9 +65,6 @@ class UpdateProduct extends Component {
                     <div className="row">
                         <div className="col-md-3 m-auto">
                             <h1 className="display-5 text-center">UpdateProduct</h1>
-                            <p className="lead text-center">
-                                update your product
-                            </p>
                             <form noValidate onSubmit={this.onSubmit}>
 
                             <input

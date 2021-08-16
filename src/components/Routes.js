@@ -1,17 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import Home from './Home';
 import PageNotFound from './PageNotFound';
-// import MaterialUiSample from './MaterialUiSample';
 import Header from './Header';
 import Footer from './Footer';
 import Login from './auth/Login';
 import Logout from './auth/Logout';
-
 import CategoryAdm from './category/CategoryAdm';
-
-
 import Register from './auth/Register';
 import Product from './product/Product';
 import UpdateProduct from './product/UpdateProduct';

@@ -79,8 +79,6 @@ class SearchBar extends Component {
                                                     OwnerName:{item.advownername}
 
                                                 </p>
-                                                {/* <button className="btn btn-success " >Buy</button> */}
-                                                {/* <button className="btn btn-success  " onClick={() => history.push ('/Message')}>Buy</button> */}
                                                 <button className="btn btn-success "  > <Link className="text-white" to={'/Message'}>Buy</Link></button>
                                             </div>
 

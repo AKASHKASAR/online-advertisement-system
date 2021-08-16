@@ -54,9 +54,7 @@ class Product extends Component {
                     <div className="row">
                         <div className="col-md-3 m-auto">
                             <h1 className="display-6 text-center">Add product</h1>
-                            <p className="lead text-center">
-                                Add your product
-                            </p>
+                        
                             <form noValidate onSubmit={this.onSubmit} and onReset={this.resetForm}>
                                 <input
                                     name="advertisetitle"
