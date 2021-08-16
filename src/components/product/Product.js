@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classnames from 'classnames';
 import { connect } from 'react-redux';
 // import { addProduct } from '../actions/productActions';
-
 import {
     addProduct,
     updateProduct
-    
-  } from "../services/index";
+
+} from "../../services/index";
 
 class Product extends Component {
     constructor() {
@@ -28,28 +26,13 @@ class Product extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     if (this.props.auth.isAuthenticated) {
-    //         // if loged in, redirect to home / books:
-    //         this.props.history.push('/');
-    //     }
-    // }
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({ errors: nextProps.errors });
-        }
-    }
-
     onChange(e) {
         this.setState({
-            // way to keep this code DRY so this one function works on ALL the input fields
             [e.target.name]: e.target.value
         });
     }
 
     onSubmit(e) {
-        e.preventDefault();
 
         const newProduct = {
             advertisetitle: this.state.advertisetitle,
@@ -59,18 +42,14 @@ class Product extends Component {
             catid: this.state.catid,
             imageUrl: this.state.imageUrl,
         }
-         
+        e.preventDefault();
         this.props.addProduct(newProduct, this.props.history);
     }
 
     render() {
 
-        // const { errors } = this.state;
-        // Same as:
-        // const errors = this.state.errors;
-
         return (
-            <div className="register">
+            <div >
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 m-auto">
@@ -78,11 +57,8 @@ class Product extends Component {
                             <p className="lead text-center">
                                 Add your product
                             </p>
-                            <form noValidate onSubmit={this.onSubmit}>
+                            <form noValidate onSubmit={this.onSubmit} and onReset={this.resetForm}>
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.title
-                                    // })}
                                     name="advertisetitle"
                                     type="text"
                                     placeholder="title"
@@ -91,9 +67,6 @@ class Product extends Component {
                                 />
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.price
-                                    // })}
                                     name="price"
                                     type="text"
                                     placeholder="price"
@@ -102,10 +75,6 @@ class Product extends Component {
                                 />
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.description
-                                    // })}
-
                                     name="description"
                                     type="text"
                                     placeholder="description"
@@ -115,10 +84,6 @@ class Product extends Component {
 
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
-
                                     name="advownername"
                                     type="text"
                                     placeholder="advownername"
@@ -127,10 +92,6 @@ class Product extends Component {
                                 />
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
-
                                     name="catid"
                                     type="text"
                                     placeholder="catid"
@@ -138,21 +99,13 @@ class Product extends Component {
                                     onChange={this.onChange}
                                 />
 
-
-
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
-
                                     name="imageUrl"
                                     type="text"
                                     placeholder="imageUrl"
                                     value={this.state.imageUrl}
                                     onChange={this.onChange}
                                 />
-
-
                                 <input type="submit" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>
@@ -166,12 +119,10 @@ class Product extends Component {
 Product.propTypes = {
     addProduct: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,
-    // errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
     product: state.product,
-    // errors: state.errors
 });
 
 export default connect(mapStateToProps, { addProduct })(withRouter(Product));

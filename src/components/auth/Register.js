@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { validateFields } from './Validation';
 
 class Register extends Component {
     constructor(props) {
@@ -97,7 +96,7 @@ class Register extends Component {
                     alert("User With Entered Email already Exists");
                 }
 
-            }); //
+            });
         this.setState({
             firstName: "",
             lastName: "",
@@ -113,92 +112,92 @@ class Register extends Component {
 
     }
 
+
+
+
     render() {
         return (
+            <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-5">
+                        <div className="cardo">
+                            <div className="card-body">
+                                <form onSubmit={this.handleSubmit}>
+                                    <h1 className="text-center">User Registration</h1>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>FirstName :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="FirstName..." /><br />
+                                        </div>
+                                    </div>
 
-                        <div className="card-body">
-                            <form onSubmit={this.handleSubmit}>
-                                <h1 className="text-center" >User Registration</h1>
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>First Name :</label>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>LastName :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="LastName..." /><br />
+                                        </div>
                                     </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="text" value={this.state.firstName} onChange={this.firsthandler} placeholder="FirstName..." /><br />
-                                    </div>
-                                </div>
 
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Last Name :</label>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>Email :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="email" value={this.state.email} onChange={this.emailHandler} placeholder="Email" required /><br />
+                                        </div>
                                     </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="text" value={this.state.lastName} onChange={this.lasthandler} placeholder="LastName..." /><br />
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>Password :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password..." required /><br />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Email :</label>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>contactno :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="number" value={this.state.contactno} onChange={this.contactnoHandler} placeholder="Enter your contactno" /><br />
+                                        </div>
                                     </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="email" value={this.state.email} onChange={this.emailHandler} placeholder="Email" required /><br />
-                                    </div>
-                                </div>
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Password :</label>
-                                    </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="password" value={this.state.password} onChange={this.passwordhandler} placeholder="Password..." required /><br />
-                                    </div>
-                                </div>
-
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Contact No :</label>
-                                    </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="number" value={this.state.contactno} onChange={this.contactnoHandler} placeholder="Enter your contactno" /><br />
-                                    </div>
-                                </div>
-
-
-
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Address :</label>
-                                    </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="text" value={this.state.address} onChange={this.addressHandler} placeholder="Enter your Address" /><br />
-                                    </div>
-                                </div>
-
-                                <div className="row p-1">
-                                    <div className="col-sm-4 col-12">
-                                        <label>Username</label>
-                                    </div>
-                                    <div className="col-sm-8 col-12">
-                                        <input type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="Username" required /><br />
-                                    </div>
-                                </div>
 
 
 
-                               
-                              
-                                <input type="submit" className="btn btn-success btn-right  btn-block" value="Register" />
-                                
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>address :</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="text" value={this.state.address} onChange={this.addressHandler} /><br />
+                                        </div>
+                                    </div>
 
-                              
-                            </form>
+                                    <div className="row p-1">
+                                        <div className="col-sm-4 col-12">
+                                            <label>username</label>
+                                        </div>
+                                        <div className="col-sm-8 col-12">
+                                            <input type="text" value={this.state.username} onChange={this.usernamehandler} placeholder="username" required /><br />
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <input type="submit" className="btn btn-dark btn-block" value="Register" />
+                                </form>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-       
+            </div>
 
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
-import ImgProduct from './ImgProduct';
-import Search from './Search';
+import ImgProduct from './product/ImgProduct';
+
 import { Navbar, Nav } from "react-bootstrap";
 import '../App.css';
 
@@ -16,24 +16,18 @@ const Header = () => (
 
         <li className="nav-item">
         </li>
-        
-      <div className="container1">
-        <li>
-          <button className="btn"  > <Link className="text-white text-decoration-none" to={'/SearchBar'}>Search Advertisement</Link></button>
-        </li>
+
+        <div className="container1">
+          <li>
+            <button className="btn"  > <Link className="text-white text-decoration-none" to={'/SearchBar'}>Search Advertisement</Link></button>
+          </li>
         </div>
 
-        <Nav className="navbar-right">        <Link to={"/Register"} className="nav-link">        {/* <FontAwesomeIcon icon={faUserPlus} /> */}           Sign Up        </Link>
-          <Link to={"/Login"} className="nav-link">        {/* <FontAwesomeIcon icon={faSignInAlt} /> */}           Login        </Link>
-          <Link to={"/Logout"} className="nav-link">        {/* <FontAwesomeIcon icon={faSignInAlt} /> */}           Logout        </Link>
+        <Nav className="navbar-right">
+          <Link to={"/Register"} className="nav-link">Sign Up </Link>
+          <Link to={"/Login"} className="nav-link">Login</Link>
+          <Link to={"/Logout"} className="nav-link">Logout</Link>
         </Nav>
-
-
-        {/* <ul className="ml-auto "  > */}
-        {/* <li className=" nav-tabs right"><Link className="nav-link" to="/Register"  >Sign Up</Link></li> */}
-        {/* </ul> */}
-        {/* <li className="nav-item nav-tabs "> <Link className="nav-link" to="/Login"   > Log In</Link></li>
-         */}
       </ul>
 
     </Nav>
@@ -58,8 +52,6 @@ const Header = () => (
           </ul>
         </div>
 
-
-
         <ul className="navbar-nav">
 
           <li className="nav-item nav-tabs">
@@ -73,8 +65,6 @@ const Header = () => (
           <li className="nav-item nav-tabs " >
             <Link className="nav-link" to="/Product" >Car</Link>
           </li>
-
-
           {/* <li className="nav-item nav-tabs "> <Link className="nav-link" to="/AdminFunction"   > AdminFunction</Link></li>
  <li className="nav-item nav-tabs "> <Link className="nav-link" to="/UserFunction"   > UserFunction</Link></li> */}
         </ul>

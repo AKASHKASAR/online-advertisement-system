@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-// import { addProduct ,updateProduct } from '../actions/productActions';
-
 import {
     addProduct,
-    updateProduct
-    
-  } from "../services/index";
+    updateProduct 
+  } from "../../services/index";
 
 class UpdateProduct extends Component {
     constructor() {
@@ -29,13 +26,6 @@ class UpdateProduct extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     if (this.props.auth.isAuthenticated) {
-    //         // if loged in, redirect to home / books:
-    //         this.props.history.push('/');
-    //     }
-    // }
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors });
@@ -44,7 +34,6 @@ class UpdateProduct extends Component {
 
     onChange(e) {
         this.setState({
-            // way to keep this code DRY so this one function works on ALL the input fields
             [e.target.name]: e.target.value
         });
     }
@@ -82,9 +71,6 @@ class UpdateProduct extends Component {
                             <form noValidate onSubmit={this.onSubmit}>
 
                             <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.title
-                                    // })}
                                     name="advid"
                                     type="number"
                                     id="advid"
@@ -93,9 +79,6 @@ class UpdateProduct extends Component {
                                     onChange={this.onChange}
                                 />
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.title
-                                    // })}
                                     name="advertisetitle"
                                     type="text"
                                     placeholder="title"
@@ -104,9 +87,6 @@ class UpdateProduct extends Component {
                                 />
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.price
-                                    // })}
                                     name="price"
                                     type="text"
                                     placeholder="price"
@@ -115,10 +95,6 @@ class UpdateProduct extends Component {
                                 />
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.description
-                                    // })}
-
                                     name="description"
                                     type="text"
                                     placeholder="description"
@@ -128,25 +104,13 @@ class UpdateProduct extends Component {
 
 
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
-
                                     name="advownername"
                                     type="text"
                                     placeholder="advownername"
                                     value={this.state.advownername}
                                     onChange={this.onChange}
                                 />
-
-                                
-
-
-
                                 <input
-                                    // className={classnames('form-control form-control-lg', {
-                                    //     'is-invalid': errors.ownername
-                                    // })}
 
                                     name="imageUrl"
                                     type="text"
@@ -169,12 +133,10 @@ class UpdateProduct extends Component {
 UpdateProduct.propTypes = {
     updateProduct: PropTypes.func.isRequired,
     product: PropTypes.object.isRequired,
-    // errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
     product: state.product,
-    // errors: state.errors
 });
 
 export default connect(mapStateToProps, { updateProduct })(withRouter(UpdateProduct));

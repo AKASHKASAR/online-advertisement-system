@@ -1,19 +1,6 @@
 import React, { Component } from 'react';
-import Search from './Search';
-import history from './history';
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { makeStyles } from '@material-ui/core/styles'
-import {
-    Grid,
-    Card,
-    CardContent,
-    Typography,
-    CardHeader
-} from '@material-ui/core/'
 
-import { ImageList } from '@material-ui/core';
-import product from './Product';
 
 class Logout extends Component {
     constructor(props) {
@@ -21,15 +8,13 @@ class Logout extends Component {
         this.state = {
 
 
-            
+
 
             product: [],
-            
+
 
         };
     }
-
-
 
 
     componentDidMount() {
@@ -41,28 +26,20 @@ class Logout extends Component {
 
                 console.log(data);
             })
-            
+
             .catch((error) => {
                 console.log(error.message)
             })
     }
 
-   
-
-
 
     render() {
-    
+
 
         return (
             <div>
-                <h1>
-            
-           { this.state.product}
-
-            </h1>
-          </div>
-
+                <h1> {this.state.product}</h1>
+            </div>
         );
     }
 }

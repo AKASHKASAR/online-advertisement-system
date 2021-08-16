@@ -37,9 +37,6 @@ export const addProduct = (productObject) => {
     };
 
 
-  
-
-
   };
    
   export const deleteProduct = advid => dispatch => {
@@ -53,24 +50,6 @@ export const addProduct = (productObject) => {
       )
   };
 
-
-//   export const getBooks = (user_id) => dispatch => {
-//   dispatch(setBooksLoading());
-//   axios
-//     .get('/api/books', {
-//       params: {
-//         user_id: user_id
-//       }
-//     })
-//     .then(res =>
-//       dispatch({
-//         type: PT.PRODUCT_FIND_REQUEST,
-//         payload: res.data
-//       })
-//     )
-// };
-  
- 
 
   const productRequest = () => {
     return {

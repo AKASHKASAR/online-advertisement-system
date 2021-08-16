@@ -9,22 +9,17 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case CT.CATEGORY_SAVED_SUCCESS:
-        return {
-          message: action.payload,
-          error: "",
-        
+      return {
+        message: action.payload,
+        error: "",
 
-        };
-
-
-        default:
-            return state;
-        }
+      };
 
 
-    };
+    default:
+      return state;
+  }
 
+};
 
-
-
-    export default reducer;
+export default reducer;

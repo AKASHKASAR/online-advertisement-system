@@ -9,17 +9,17 @@ import {
     CardHeader
 } from '@material-ui/core/';
 
-
-class SearchBar extends Component {
+class ImgProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
+
             product: [],
             searchProduct: ''
 
         };
     }
-
 
     componentDidMount() {
         this.findAllAdvertise(this.state.currentPage);
@@ -38,7 +38,7 @@ class SearchBar extends Component {
             .catch((error) => {
                 console.log(error.message)
             })
-    }
+    };
 
 
     searchChanged = event => {
@@ -65,8 +65,6 @@ class SearchBar extends Component {
 
                             <div>
                                 <ul>
-
-
                                     <div className="  col-11 col-md-6 col-lg-3 mx-0 mb-4 ">
                                         <div className="card p-0  overflow-hidden shadow" style={{ width: " 15rem " }} >
                                             <h5 className="card-header text-dark">{item.advertisetitle}</h5>
@@ -76,10 +74,10 @@ class SearchBar extends Component {
                                                     AdvID:{item.advid} <br />
                                                     Price:{item.price}₹  <br />
                                                     Description:{item.description} <br />
-                                                    OwnerName:{item.advownername}
+                                                    OwnerName:{item.advownername}<br />
+                                                    Status:{item.status}<br />
 
                                                 </p>
-                                                {/* <button className="btn btn-success " >Buy</button> */}
                                                 {/* <button className="btn btn-success  " onClick={() => history.push ('/Message')}>Buy</button> */}
                                                 <button className="btn btn-success "  > <Link className="text-white" to={'/Message'}>Buy</Link></button>
                                             </div>
@@ -101,4 +99,4 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+export default ImgProduct;

@@ -20,27 +20,21 @@ const reducer = (state = initialState, action) => {
     case PT.PRODUCT_SUCCESS:
       return {
         message: action.payload,
-        error: "",};
-
-      
-        case PT.PRODUCT_FAILURE:
-          return {
-            message: action.payload,
-            error: "",};
-            
+        error: "",
+      };
 
 
+    case PT.PRODUCT_FAILURE:
+      return {
+        message: action.payload,
+        error: "",
+      };
+
+    default:
+      return state;
+  }
 
 
+};
 
-        default:
-            return state;
-      }
-
-
-  };
-
-
-
-
-  export default reducer;
+export default reducer;

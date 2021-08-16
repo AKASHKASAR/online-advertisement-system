@@ -10,10 +10,6 @@ function Footer() {
       <p>Copyright &copy;2021 By FlyBuy Online</p>
     </div>
 
-
-    // <footer>
-    //  <p>Copyright &copy; Capgemini</p>
-    // </footer>
   );
 }
 export default Footer;

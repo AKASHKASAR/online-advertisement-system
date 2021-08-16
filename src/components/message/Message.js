@@ -1,7 +1,5 @@
-
 import axios from "axios";
 import { useState, useEffect } from 'react';
-
 
 let MsgData = (props) => {
     const [msg, setMsg] = useState({
@@ -54,27 +52,19 @@ let MsgData = (props) => {
                 <div>
                     <input
                         type="number"
-                        // id="msgid"
+                        id="userid"
                         name="userid"
                         value={msg.userid}
-                        placeholder="userid" 
+                        placeholder="userid"
                         className="form-control mb-2"
                         onChange={handleMessage}
                     />
-                    {/* <input
-                        type="number"
-                        id="username"
-                        name="username"
-                        placeholder="username" 
-                        value={msg.username}
-                        className="form-control mb-2"
-                        onChange={handleMessage}
-                    /> */}
+
                     <input
                         type="number"
                         id="advid"
                         name="advid"
-                        placeholder="advid" 
+                        placeholder="advid"
                         value={msg.advid}
                         className="form-control mb-2"
                         onChange={handleMessage}
@@ -84,23 +74,19 @@ let MsgData = (props) => {
                         type="text"
                         id="textMessage"
                         name="textMessage"
-                        placeholder="textMessage" 
+                        placeholder="textMessage"
                         value={msg.textMessage}
                         className="form-control mb-2"
                         onChange={handleMessage}
                     />
                 </div>
                 {/* <button type="submit" className="btn btn-success" > Send Message</button> */}
-                <input type="submit" className="btn btn-dark btn-block" value="Message" />
+                <input type="submit" className="btn btn-dark btn-block" value=" Send Message" />
             </form>
-
-
         </div>
 
 
     )
-
-
 
 }
 

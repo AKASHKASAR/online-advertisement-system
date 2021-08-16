@@ -1,6 +1,5 @@
 import * as UT from "../actions/types";
 
-
 const initialState = {
   users: [],
   error: "",
