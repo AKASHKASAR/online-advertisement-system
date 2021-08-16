@@ -20,6 +20,9 @@ import AdminFunction  from'./AdminFunction';
 import UserFunction  from'./UserFunction';
 import User from'./User';
 import ImgProduct from './ImgProduct';
+import ProductStatus from './ProductStatus';
+import ProductImgHome from './ProductImgHome';
+import SearchBar from './SearchBar';
 import Message from './Message';
 
 
@@ -48,6 +51,10 @@ const Routes = () => {
                             <Route path="/UserFunction">< UserFunction/></Route>
                             <Route path="/User">< User/></Route>
                             <Route path="/ImgProduct">< ImgProduct/></Route>
+                            <Route path="/ProductImgHome">< ProductImgHome/></Route>
+                            <Route path="/ProductStatus">< ProductStatus/></Route>
+                            <Route path="/SearchBar">< SearchBar/></Route>
+
                             <Route path="/Message">< Message/></Route>
                             
 

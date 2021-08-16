@@ -18,7 +18,7 @@ const Header = () => (
         </li>
 
         <li>
-        <button className="btn btn-warning "  > <Link className="text-white text-decoration-none"  to={'/ImgProduct'}>Search Advertisement</Link></button>
+        <button className="btn btn-warning "  > <Link className="text-white text-decoration-none"  to={'/SearchBar'}>Search Advertisement</Link></button>
         </li>
         
         {/* <ul className="ml-auto "  > */}

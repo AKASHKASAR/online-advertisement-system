@@ -55,21 +55,21 @@ let MsgData = (props) => {
                     <input
                         type="number"
                         // id="msgid"
-                        name="msgid"
-                        value={msg.msgid}
-                        placeholder="msgid" 
-                        className="form-control mb-2"
-                        onChange={handleMessage}
-                    />
-                    <input
-                        type="number"
-                        id="userid"
                         name="userid"
-                        placeholder="userid" 
                         value={msg.userid}
+                        placeholder="userid" 
                         className="form-control mb-2"
                         onChange={handleMessage}
                     />
+                    {/* <input
+                        type="number"
+                        id="username"
+                        name="username"
+                        placeholder="username" 
+                        value={msg.username}
+                        className="form-control mb-2"
+                        onChange={handleMessage}
+                    /> */}
                     <input
                         type="number"
                         id="advid"
@@ -90,7 +90,8 @@ let MsgData = (props) => {
                         onChange={handleMessage}
                     />
                 </div>
-                <button type="submit" className="btn btn-success" > Send Message</button>
+                {/* <button type="submit" className="btn btn-success" > Send Message</button> */}
+                <input type="submit" className="btn btn-dark btn-block" value="Message" />
             </form>
 
 

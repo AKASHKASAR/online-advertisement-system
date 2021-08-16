@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import Search from './Search';
 import history from './history';
@@ -15,7 +16,7 @@ import {
 import { ImageList } from '@material-ui/core';
 import product from './Product';
 
-class ImgProduct extends Component {
+class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,8 +52,8 @@ class ImgProduct extends Component {
             .catch((error) => {
                 console.log(error.message)
             })
-    };
- 
+    }
+
     
     searchChanged = event => {
         this.setState({ search: event.target.value })
@@ -111,8 +112,7 @@ class ImgProduct extends Component {
                                         AdvID:{item.advid} <br />
                                         Price:{item.price}₹  <br />
                                         Description:{item.description} <br />
-                                        OwnerName:{item.advownername}<br/>
-                                        Status:{item.status}<br/>
+                                        OwnerName:{item.advownername}
 
                                     </p>
                                     {/* <button className="btn btn-success " >Buy</button> */}
@@ -137,4 +137,4 @@ class ImgProduct extends Component {
     }
 }
 
-export default ImgProduct;
+export default SearchBar;

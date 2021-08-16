@@ -59,7 +59,7 @@ class Product extends Component {
             catid: this.state.catid,
             imageUrl: this.state.imageUrl,
         }
-
+         
         this.props.addProduct(newProduct, this.props.history);
     }
 

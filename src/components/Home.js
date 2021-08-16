@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import imgProduct from './ImgProduct';
+import ProductImgHome from './ProductImgHome';
 import Search from './Search';
 
 function Home() {
@@ -10,9 +11,10 @@ function Home() {
     {/* <h1 className="display-1 text-primary">Home Component</h1> */}
       
       <h1> Welcome to Flybuy</h1>
-       {/* <img src="./Images/imgbs.jpg" width="600px" height="300px" alt="imgbs" className="center"/> */}
+      <p>Now Sell and Buy anytime on Flybuy</p>
+       <ul><img src="./Images/imgbs.jpg" width="1000px" height="160px" alt="imgbs" className="center"/></ul>
         <ul>
-          <Search />
+          <ProductImgHome />
         </ul>
      {/* <div class="container">
          <div class="row">

@@ -17,7 +17,7 @@ const AdminFunction= () => (
 
             <button variant="btn btn-success" onClick={() => history.push ('/User')}>View Users List</button>
             <button variant="btn btn-success" onClick={() => history.push ('/imgProduct')}>Click to see Product</button>
-            <button variant="btn btn-success" onClick={() => history.push ('/')}>Update status of Product</button>
+            <button variant="btn btn-success" onClick={() => history.push ('/ProductStatus')}>Update status of Product</button>
 
             
             {/* <button variant="btn btn-success" onClick={() => history.push ('/User')}>View Users</button> */}

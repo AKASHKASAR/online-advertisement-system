@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Search from './Search';
-import history from './history';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles'
@@ -12,22 +10,15 @@ import {
     CardHeader
 } from '@material-ui/core/';
 
-import { ImageList } from '@material-ui/core';
-import product from './Product';
 
-class ImgProduct extends Component {
+
+
+class ProductImgHome extends Component {
     constructor(props) {
         super(props);
         this.state = {
 
-
-            //  advid:'' ,
-
-            //  textMessage:'',
-
-            product: [],
-            searchProduct:''
-
+            product: []
         };
     }
 
@@ -35,64 +26,38 @@ class ImgProduct extends Component {
 
 
     componentDidMount() {
-        this.findAllAdvertise(this.state.currentPage);
-    }
 
-    findAllAdvertise(cureentPage){
         axios
-            .get("/user/seller/getAllAdv")
-            .then(response => response.data)
-            .then((data) => {
-                this.setState({ product: data })
+        .get("/user/seller/getAllAdv")
+        .then(response => response.data)
+        .then((data) => {
+            this.setState({ product: data })
 
-                console.log(data);
-            })
-            
-            .catch((error) => {
-                console.log(error.message)
-            })
-    };
- 
-    
-    searchChanged = event => {
-        this.setState({ search: event.target.value })
-    }
-    // handleInput = (e) => {
-    //     // this.setState({ searchProduct: e.target.value })
-    //     this.state.product.advertisetitle = e.target.product.advertisetitle.toLowerCase();
-        // this.state.filterProduct = this.state.product.filter((e) => {
-        //     product.advertisetitle = e.target.value.toLowerCase();
-            // return product.advertisetitle.toLowerCase().include(this.state.searchProduct.toLowerCase());
+            console.log(data);
+        })
         
-    // }
-    // handleSubmit = (event) => {
-    //     filterProduct = this.state.product.filter((product) => {
-    //         return product.advertisetitle.toLowerCase().include(this.state.searchProduct.toLowerCase());
+        .catch((error) => {
+            console.log(error.message)
+        })
+        
 
-    //     })
-    //     event.preventDefault();
-    //     // history.push("/ProductsLink");
-    // }
+
+    }
+
 
 
 
     render() {
-    
 
         return (
             <div>
-            
-            <h1> Search Product By name</h1>
-            <input type='text' onChange={this.searchChanged} placeholder="Redmi,Vivo.." value={this.state.search}/>
-
-        <div>
             <Grid
             container
             direction="row"
             justifyContent="center"
             alignItems="center"
              >
-           { this.state.product.filter(item => item.advertisetitle.includes(this.state.search)).map(item => (
+           { this.state.product.map(item => (
 
 
 
@@ -111,8 +76,7 @@ class ImgProduct extends Component {
                                         AdvID:{item.advid} <br />
                                         Price:{item.price}₹  <br />
                                         Description:{item.description} <br />
-                                        OwnerName:{item.advownername}<br/>
-                                        Status:{item.status}<br/>
+                                        OwnerName:{item.advownername}
 
                                     </p>
                                     {/* <button className="btn btn-success " >Buy</button> */}
@@ -131,10 +95,20 @@ class ImgProduct extends Component {
 
             </Grid>
             </div>
-          </div>
+          
+            
+
+
+
+
+
+
+
 
         );
     }
+
 }
 
-export default ImgProduct;
+
+export default ProductImgHome;
