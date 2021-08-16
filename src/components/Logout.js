@@ -56,10 +56,11 @@ class Logout extends Component {
 
         return (
             <div>
+                <h1>
             
            { this.state.product}
 
-            
+            </h1>
           </div>
 
         );

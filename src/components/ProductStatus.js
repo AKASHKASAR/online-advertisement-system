@@ -29,7 +29,7 @@ class ProductStatus extends Component {
 
     componentDidMount() {
 
-        axios.post(`/admin/updateStatus`)
+        axios.put(`/admin/updateStatus`)
         .then((response) => {
             console.log(response.data.name);
         }).catch((error) => {
