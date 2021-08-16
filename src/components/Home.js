@@ -12,7 +12,7 @@ function Home() {
       
       <h1> Welcome to Flybuy</h1>
       <p>Now Sell and Buy anytime on Flybuy</p>
-       <ul><img src="./Images/imgbs.jpg" width="1000px" height="160px" alt="imgbs" className="center"/></ul>
+       <ul><img src="./Images/Buy_Sell.jpg" width="1000px" height="250px" alt="imgbs" className="center"/></ul>
         <ul>
           <ProductImgHome />
         </ul>
