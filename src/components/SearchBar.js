@@ -65,6 +65,8 @@ class SearchBar extends Component {
 
                             <div>
                                 <ul>
+
+
                                     <div className="  col-11 col-md-6 col-lg-3 mx-0 mb-4 ">
                                         <div className="card p-0  overflow-hidden shadow" style={{ width: " 15rem " }} >
                                             <h5 className="card-header text-dark">{item.advertisetitle}</h5>

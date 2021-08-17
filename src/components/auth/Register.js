@@ -81,7 +81,7 @@ class Register extends Component {
             contactno: this.state.contactno,
             role: this.state.role
         }
-        axios.post('/Registration', user)
+        axios.post('http://localhost:8084/Registration', user)
             .then(res => {
                 console.log(res.data);
                 console.log(res.status);
@@ -102,7 +102,7 @@ class Register extends Component {
             username: "",
             email: "",
             password: "",
-            address: "",
+            address: 0,
             contactno: "",
 
         })

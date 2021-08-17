@@ -30,7 +30,7 @@ export class Login extends Component {
             password: this.state.password
         }
 
-        axios.post('/login', user)
+        axios.post('http://localhost:8084/login', user)
             .then(res => {
                 console.log(res.data.role);
                 const role = res.data.role;

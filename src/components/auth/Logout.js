@@ -19,7 +19,7 @@ class Logout extends Component {
 
     componentDidMount() {
         axios
-            .get('/logout')
+            .get('http://localhost:8084/logout')
             .then(response => response.data)
             .then((data) => {
                 this.setState({ product: data })
