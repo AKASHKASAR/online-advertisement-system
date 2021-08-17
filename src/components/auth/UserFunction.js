@@ -4,7 +4,7 @@ const UserFunction = () => (
 
   <div >
     <div className="form-group mt-2 text-center">
-      <h1>Admin Function</h1> <br/>
+      <h1>User Function</h1> <br/>
       </div>
       <form>
         <div className="row ">
